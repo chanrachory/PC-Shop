@@ -1,0 +1,374 @@
+// This is a SCSS file for styling a web application.
+@import url("https://fonts.googleapis.com/css2?family=Moul&display=swap");
+$primary-color: #2563eb;
+$dark-color: #1a1a1a;
+$light-bg: #f8f9fa;
+$font-kh: "Moul", serif;
+
+body {
+  background-color: $light-bg;
+}
+
+.header {
+  position: relative;
+  .navbar {
+    background-color: $dark-color;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 10 20px;
+    z-index: 100;
+
+    .nav-item {
+      font-size: 1.2rem;
+      padding: 0 10px;
+    }
+    .navbar-brand {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  background: linear-gradient(to right, #2b2dc5, #10b981);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0;
+  overflow: hidden;
+
+  .container-fluid {
+    position: relative;
+    z-index: 2;
+  }
+
+  .row {
+    align-items: center;
+  }
+
+  .col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  h1, #br1, p, .btn-group {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease-out forwards;
+  }
+
+  h1 {
+    font-family: $font-kh;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 2.5rem;
+    animation-delay: 0.3s;
+  }
+
+  #br1 {
+    font-family: $font-kh;
+    font-weight: 400;
+    color: #fff;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 2.5rem;
+    animation-delay: 0.5s;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #f0f0f0;
+    margin-top: 15px;
+    animation-delay: 0.7s;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    animation-delay: 0.9s;
+
+    .btn-shop {
+      font-size: 1rem;
+      padding: 10px 20px;
+      border-radius: 8px;
+      flex: 1;
+    }
+  }
+
+  .hero-image {
+    position: relative;
+    text-align: center;
+
+    img {
+      width: 100%;
+      max-width: 700px;
+      height: 100%;
+      max-height: 500px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      margin: auto;
+      display: block;
+
+      // Initial entrance animation
+      opacity: 0;
+      transform: translateX(100px);
+      animation: fadeSlide 1.2s ease-out forwards, floating 3s ease-in-out infinite;
+      animation-delay: 0.2s, 1.5s; 
+    }
+  }
+
+  // Keyframes
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeSlide {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes floating {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    height: auto;
+    padding: 60px 0;
+
+    .row {
+      flex-direction: column-reverse;
+    }
+
+    .hero-image img {
+      width: 80%;
+      max-width: 300px;
+    }
+
+    h1, #br1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .btn-group {
+      flex-direction: column;
+      gap: 10px;
+
+      .btn-shop {
+        width: 100%;
+      }
+    }
+  }
+}
+
+//Flash Deals
+.flash-deals {
+  position: relative;
+  top: 100px;
+  background-color: $light-bg;
+  padding: 20px 0;
+  .timer {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+  .product.card {
+    .card-star {
+      font-size: 1.5rem;
+    }
+    .badge {
+      height: 20px;
+      padding: 0 auto;
+    }
+    img {
+      max-height: 250px;
+      object-fit: contain;
+    }
+  }
+}
+
+.featured-products {
+  position: relative;
+  top: 75px;
+}
+.featured-products,
+.flash-deals {
+  .product {
+    position: relative;
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+    .badge {
+      top: 10px;
+      left: 10px;
+    }
+  }
+}
+//categories
+.categories {
+  position: relative;
+  top: 75px;
+}
+img {
+  max-height: 230px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+.category-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.category-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+.category-link:hover h5 {
+  color: #0d6efd; /* Primary color */
+}
+
+// arrivals
+.arrivals-products .body-arrivals img {
+  transition: transform 0.4s ease;
+}
+
+.arrivals-products .body-arrivals:hover img {
+  transform: scale(1.05);
+}
+
+/* Optional: Card hover beautiful */
+.arrivals-products .body-arrivals .card {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+.arrivals-products .body-arrivals:hover .card {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translatey(5px);
+}
+// Top brands
+
+.brand-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-img:hover {
+  transform: scale(1.1);
+}
+
+/* Prev/Next button style */
+.custom-btn {
+  background-color: #007bff; /* blue */
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background-color 0.3s, opacity 0.3s;
+  z-index: 10;
+}
+
+.custom-btn:hover {
+  background-color: #0056b3; /* darker blue when hover */
+  opacity: 1;
+}
+
+.carousel-control-prev {
+  left: -30px;
+}
+
+.carousel-control-next {
+  right: -30px;
+}
+
+
+
+
+
+.newsletter {
+  background-color: $primary-color;
+  padding: 40px 0;
+}
+
+.footer {
+  background-color: $dark-color;
+}
+
+.cart-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  h6 {
+    margin: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+#print-receipt {
+  padding: 20px;
+  h2 {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    th,
+    td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f43939;
+    }
+  }
+  p {
+    text-align: center;
+  }
+}

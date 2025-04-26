@@ -1,0 +1,16 @@
+{
+  "name": "pc-shop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass styles.scss styles.css",
+    "sass:watch": "sass styles.scss styles.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.87.0"
+  }
+}
